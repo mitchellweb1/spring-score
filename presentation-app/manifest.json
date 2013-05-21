@@ -1,0 +1,14 @@
+{
+  "name": "Spring Score Presentation View",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "permissions": [
+     "fullscreen",
+	 {"socket" : ["tcp-connect", "tcp-listen"]}
+  ]
+}

@@ -1,16 +1,20 @@
 <div class="container-fluid">
-  <h3>Standings</h3>
+  <h3>Results</h3>
   <div class="row-fluid">
     <div class="span12">
       <table class="table table-bordered table-condensed">
 		<thead>
 			<tr>
-				<td ng-repeat="field in fields">{{field.label}}</td>
+				<td>Time</td>
+				<td>Match</td>
+				<td>Scrore</td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="team in teams | orderBy:'rank'">
-				<td ng-repeat="field in fields">{{team[field.id]}}</td>
+			<tr ng-repeat="result in results | orderBy:'match'">
+				<td>{{result.time}}</td>
+				<td>{{result.match}}</td>
+				<td>{{result.score}}</td>
 			</tr>
 		</tbody>
       </table>

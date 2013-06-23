@@ -10,21 +10,29 @@
 
 <div class="btn-toolbar" id="config-toolbar">
   <div class="btn-group" data-ng-controller="ModeCtrl">
-    <a href="#/settings" id="mode-settings" class="btn" data-ng-class="{active: isSettingsMode()}" data-ng-click="setSettingsMode()">Settings</a>
-    <a href="#/results" id="mode-results" class="btn" data-ng-class="{active: isResultsMode()}" data-ng-click="setResultsMode()">Results</a>
-    <a href="#/schedule" id="mode-schedule" class="btn" data-ng-class="{active: isScheduleMode()}" data-ng-click="setScheduleMode()">Schedule</a>
-    <a href="#/standings" id="mode-standings" class="btn" data-ng-class="{active: isStandingsMode()}" data-ng-click="setStandingsMode()">Standings</a>
+    <a href="#/results" id="mode-results" class="btn" data-ng-class="{active: isResultsMode()}">Results</a>
+    <a href="#/schedule" id="mode-schedule" class="btn" data-ng-class="{active: isScheduleMode()}">Schedule</a>
+    <a href="#/standings" id="mode-standings" class="btn" data-ng-class="{active: isStandingsMode()}">Standings</a>
+    <a href="#/settings" id="mode-settings" class="btn" data-ng-class="{active: isSettingsMode()}">Settings</a>
   </div>
   <div class="btn-group pull-right">
     <button id="fullscreen-button" class="btn btn-primary">Fullscreen</a>
   </div>
 </div>
 
-<div ng-view></div>
+<div id="content" ng-view></div>
 
+<!-- Dependancies -->
 <script src="lib/angular.min.js"></script>
+<script src="lib/jquery-2.0.2.min.js"></script>
+
+<!-- App Initialization -->
 <script src="js/app.js"></script>
-<script src="js/rankings.js"></script>
+
+<!-- Controllers -->
+<script src="js/results.js"></script>
+<script src="js/schedule.js"></script>
+<script src="js/standings.js"></script>
 <script src="js/settings.js"></script>
 
 <script src="js/util.js"></script>

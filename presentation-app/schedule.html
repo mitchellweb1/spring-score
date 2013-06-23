@@ -5,14 +5,12 @@
       <table class="table table-bordered table-condensed">
 		<thead>
 			<tr>
-				<td>Time</td>
-				<td>Match</td>
+				<td ng-repeat="field in fields">{{field.label}}</td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="match in matches | orderBy:'match'">
-				<td>{{match.time}}</td>
-				<td>{{match.match}}</td>
+				<td ng-repeat="field in fields">{{match[field.id]}}</td>
 			</tr>
 		</tbody>
       </table>

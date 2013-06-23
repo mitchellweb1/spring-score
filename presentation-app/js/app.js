@@ -8,7 +8,6 @@ angular.module('spring-score-presentation', []).
       otherwise({redirectTo: '/settings'});
 }]);
 
-var client, server;
 $(document).ready(function(){
 	/*
 	* Fullscreen button
@@ -42,21 +41,6 @@ $(document).ready(function(){
 		}
 	});
 	
-	
-	
-	
-	
-	/*client = new HTTPClient("www.cnn.com", 80,
-	function(){
-		client.doGet("/index.html");
-	},
-	function(http_version, http_response_code, http_response_message, header_map, message_body){
-		console.log(header_map, message_body);
-	});*/
-	
-	server = new TCPServer("127.0.0.1", 8181, function(socketId){
-		return new TCPServerConnection(socketId, function(buffer){}, function(buffer){});
-	});
 });
 
 function ModeCtrl($scope) {

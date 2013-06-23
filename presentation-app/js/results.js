@@ -1,4 +1,10 @@
 function ResultsCtrl($scope) {
+	$scope.fields = [
+		{ label: 'Time', id: 'time'},
+		{ label: 'Match', id: 'match'},
+		{ label: 'Score', id: 'score'}
+	];
+	
 	$scope.results = [
 		{time: '9:10',
 		match: '1',

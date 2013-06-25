@@ -7,37 +7,47 @@
 <link rel="stylesheet" media="all" href="css/main.css">
 </head>
 <body>
+<div id="content-root">
+<div id="content-inner">
+	<div class="btn-toolbar" id="config-toolbar" data-ng-controller="ModeCtrl">
+	  <div class="btn-group">
+		<a href="#/results" id="mode-results" class="btn" data-ng-class="{active: isResultsMode()}">Results</a>
+		<a href="#/schedule" id="mode-schedule" class="btn" data-ng-class="{active: isScheduleMode()}">Schedule</a>
+		<a href="#/standings" id="mode-standings" class="btn" data-ng-class="{active: isStandingsMode()}">Standings</a>
+	  </div>
+	  <a href="#/settings" id="mode-settings" class="btn" data-ng-class="{active: isSettingsMode()}">Settings</a>
+	  <a href="#/help" id="mode-settings" class="btn btn-info" data-ng-class="{active: isHelpMode()}">Help</a>
+	  <div class="btn-group pull-right">
+		<button id="fullscreen-button" class="btn btn-primary">Fullscreen</a>
+	  </div>
+	</div>
 
-<div class="btn-toolbar" id="config-toolbar">
-  <div class="btn-group" data-ng-controller="ModeCtrl">
-    <a href="#/results" id="mode-results" class="btn" data-ng-class="{active: isResultsMode()}">Results</a>
-    <a href="#/schedule" id="mode-schedule" class="btn" data-ng-class="{active: isScheduleMode()}">Schedule</a>
-    <a href="#/standings" id="mode-standings" class="btn" data-ng-class="{active: isStandingsMode()}">Standings</a>
-    <a href="#/settings" id="mode-settings" class="btn" data-ng-class="{active: isSettingsMode()}">Settings</a>
-  </div>
-  <div class="btn-group pull-right">
-    <button id="fullscreen-button" class="btn btn-primary">Fullscreen</a>
-  </div>
+	<div id="content" ng-view></div>
+</div>
 </div>
 
-<div id="content" ng-view></div>
+	<!-- Dependancies -->
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/jquery-2.0.2.min.js"></script>
 
-<!-- Dependancies -->
-<script src="lib/angular.min.js"></script>
-<script src="lib/jquery-2.0.2.min.js"></script>
+	<!-- Services -->
+	<script src="js/updater.js"></script>
 
-<!-- App Initialization -->
-<script src="js/app.js"></script>
+	<!-- Controllers -->
+	<script src="js/results.js"></script>
+	<script src="js/schedule.js"></script>
+	<script src="js/standings.js"></script>
+	<script src="js/settings.js"></script>
 
-<!-- Controllers -->
-<script src="js/results.js"></script>
-<script src="js/schedule.js"></script>
-<script src="js/standings.js"></script>
-<script src="js/settings.js"></script>
+	<!-- Other Utilities -->
+	<script src="js/util.js"></script>
+	<script src="js/tcp-client.js"></script>
+	<script src="js/http-client.js"></script>
+	<script src="js/tcp-server.js"></script>
 
-<script src="js/util.js"></script>
-<script src="js/tcp-client.js"></script>
-<script src="js/http-client.js"></script>
-<script src="js/tcp-server.js"></script>
+
+	<!-- App Initialization -->
+	<script src="js/app.js"></script>
+
 </body>
 </html>

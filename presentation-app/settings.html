@@ -1,3 +1,28 @@
 <div class="container-fluid">
 	<h3>Settings</h3>
+	
+	<form class="form-horizontal">
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+					<input type="checkbox" ng-model="scrollingEnabled" ng-change="console.log(this);setScrollingEnabled(scrollingEnabled);"> Enable Auto-Scrolling
+				</label>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="scrollRate">Scroll Rate</label>
+			<div class="controls">
+				<input type="text" class="input-mini" id="scrollRate">
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="bottomHoldDelay">Bottom Hold Delay</label>
+			<div class="controls">
+				<input type="text" class="input-mini" id="bottomHoldDelay">
+			</div>
+		</div>
+	
+	</form>
 </div>

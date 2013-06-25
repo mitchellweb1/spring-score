@@ -1,22 +1,23 @@
-function ResultsCtrl($scope) {
-	$scope.fields = [
-		{ label: 'Time', id: 'time'},
-		{ label: 'Match', id: 'match'},
-		{ label: 'Score', id: 'score'}
-	];
+function ResultsCtrl($scope, UpdateService, ScrollService) {
+	var setData = function(data){
+        $scope.results = data.results;
+        $scope.fields = data.fields;
+	}
 	
-	$scope.results = [
-		{time: '9:10',
-		match: '1',
-		score: 10
-		},
-		{time: '9:20',
-		match: '2',
-		score: 3
-		},
-		{time: '9:30',
-		match: '3',
-		score: 45
-		}
-	];
+	$scope.$on('resultsUpdated', function(event, data) {
+		setData(data);
+		$scope.$apply();
+    });
+	
+	if(UpdateService.resultsData){
+		setData(UpdateService.resultsData);
+	}
+	
+	$scope.sortFunction = function(item) {
+		if(isNaN(item.match))
+			return item.match;
+		return parseInt(item.match);
+	}
+	
+	ScrollService.tryScrolling();
 }

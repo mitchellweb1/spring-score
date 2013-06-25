@@ -2,14 +2,14 @@
   <h3>Standings</h3>
   <div class="row-fluid">
     <div class="span12">
-      <table class="table table-bordered table-condensed">
+      <table class="table table-bordered table-condensed table-striped">
 		<thead>
 			<tr>
-				<td ng-repeat="field in fields">{{field.label}}</td>
+				<th ng-repeat="field in fields">{{field.label}}</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="team in teams | orderBy:'rank'">
+			<tr ng-repeat="team in teams | orderBy:sortFunction">
 				<td ng-repeat="field in fields">{{team[field.id]}}</td>
 			</tr>
 		</tbody>

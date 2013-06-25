@@ -1,18 +1,23 @@
-function ScheduleCtrl($scope) {
-	$scope.fields = [
-		{ label: 'Time', id: 'time'},
-		{ label: 'Match', id: 'match'}
-	];
+function ScheduleCtrl($scope, UpdateService, ScrollService) {
+	var setData = function(data){
+        $scope.matches = data.matches;
+        $scope.fields = data.fields;
+	}
 	
-	$scope.matches = [
-		{time: '9:10',
-		match: '1'
-		},
-		{time: '9:20',
-		match: '2'
-		},
-		{time: '9:30',
-		match: '3'
-		}
-	];
+	$scope.$on('scheduleUpdated', function(event, data) {
+		setData(data);
+		$scope.$apply();
+    });
+	
+	if(UpdateService.scheduleData){
+		setData(UpdateService.scheduleData);
+	}
+	
+	$scope.sortFunction = function(item) {
+		if(isNaN(item.match))
+			return item.match;
+		return parseInt(item.match);
+	}
+	
+	ScrollService.tryScrolling();
 }

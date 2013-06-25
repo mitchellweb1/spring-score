@@ -1,9 +1,25 @@
+html{
+	overflow:hidden;
+}
 body{
-	width: 100%;
-	height: 100%;
-	
 	margin: 0px;
 	padding: 0px;
+	
+	overflow:hidden;
+}
+#content-root{
+	margin: 0px;
+	padding: 0px;
+	
+	overflow:auto;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	background: lightgray;
+}
+::-webkit-scrollbar-thumb {
+	background: black;
 }
 
 #content{

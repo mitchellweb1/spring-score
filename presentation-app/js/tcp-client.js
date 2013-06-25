@@ -7,6 +7,7 @@ function TCPClient(host, port, createCallback, readCallback, closeCallback) {
 	this.createCallback = createCallback;
 	this.readCallback = readCallback;
 	this.closeCallback = closeCallback;
+	this.errorCount = 0;
 	
 	var o = this;
 	
@@ -26,9 +27,13 @@ function TCPClient(host, port, createCallback, readCallback, closeCallback) {
 				o.buffer = new Uint8Array(o.bufferSize);//create the new buffer
 				o.buffer.set(oldBuffer);//move the data from the old buffer
 			}
+			o.errorCount = 0;
 		}
 		else if(readInfo.resultCode<0){
-			o.close();
+			if(o.errorCount>=10)//works out to 0.5 sec timeout
+				o.close();
+			else
+				o.errorCount++;
 		}
 	};
 	this._doRead = function(){

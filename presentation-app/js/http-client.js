@@ -1,4 +1,15 @@
-function HTTPClient(host, port, createCallback, responseCallback) {
+function HTTPClient(){
+	this.doGet = function(host, port, location, responseCallback){
+		var session = new HTTPClientSession(host, port, 
+		function(){
+			session.doGet(host, location);
+		},
+		responseCallback);
+	};
+}
+
+
+function HTTPClientSession(host, port, createCallback, responseCallback) {
 	this.createCallback = createCallback;
 	this.responseCallback = responseCallback;
 	

@@ -1,15 +1,15 @@
 <div class="container-fluid">
-  <h3>Results</h3>
+  <h3>Match Results</h3>
   <div class="row-fluid">
     <div class="span12">
-      <table class="table table-bordered table-condensed">
+      <table class="table table-bordered table-condensed table-striped">
 		<thead>
 			<tr>
-				<td ng-repeat="field in fields">{{field.label}}</td>
+				<th ng-repeat="field in fields">{{field.label}}</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="result in results | orderBy:'match'">
+			<tr ng-repeat="result in results | orderBy:sortFunction" ng-class="result.style">
 				<td ng-repeat="field in fields">{{result[field.id]}}</td>
 			</tr>
 		</tbody>
